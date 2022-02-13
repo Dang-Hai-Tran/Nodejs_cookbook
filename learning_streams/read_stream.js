@@ -20,24 +20,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs = __importStar(require("fs"));
-const path = __importStar(require("path"));
-const process = __importStar(require("process"));
-const filepath = path.join(process.cwd(), "hello.txt");
-fs.readFile(filepath, "utf-8", (err, content) => {
-    if (err) {
-        throw err;
-    }
-    else {
-        console.log(`File data: ${content}`);
-    }
-    const upperContent = content.toUpperCase();
-    fs.writeFile(filepath, upperContent, "utf-8", (err) => {
-        if (err) {
-            throw err;
-        }
-        else {
-            console.log(`File updated`);
-        }
-    });
+const rs = fs.createReadStream("./file.txt");
+rs.on("data", function (data) {
+    console.log(`Read chuck: ${data}`);
 });
-setInterval(() => process.stdout.write("**** \n"), 1).unref();
+rs.on("end", function () {
+    console.log("No more data");
+});
