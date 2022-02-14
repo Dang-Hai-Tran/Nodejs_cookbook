@@ -1,0 +1,1 @@
+A pipe is a form of one-way redirection. In our Terminal (DOS or Unix-like), we often utilize the pipe operator (|) to pipe the output of one program as the input to another program. For example, we can enter $ ls | head -3 to pipe the output of the ls command to the head -3 command, resulting in the first three files in our directory being returned.

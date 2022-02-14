@@ -1,0 +1,1 @@
+In this recipe, we'll learn how to create a transform stream using the Node.js core stream module. The transform stream we will create will convert all the text from our file into uppercase:
